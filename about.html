@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about Elite Farm - our story, mission, and commitment to sustainable farming practices and quality poultry products.">
+    <meta name="keywords" content="poultry farm, about us, sustainable farming, ethical farming, farm story">
+    <title>About Us - Elite Farm</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/notifications.css">
+
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            color: var(--color-text-inverse);
+            padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: var(--color-text-inverse);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .page-header p {
+            font-size: var(--font-size-xl);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--radius-xl);
+            object-fit: cover;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-xl);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-text-inverse);
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-4xl);
+        }
+
+        .timeline {
+            position: relative;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--color-primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-3xl);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-empty {
+            grid-column: 1;
+        }
+
+        .timeline-content {
+            background: var(--color-bg-card);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--color-primary);
+            color: var(--color-text-inverse);
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .team-card {
+            text-align: center;
+            background: var(--color-bg-card);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--spacing-md);
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-4xl);
+            color: var(--color-text-inverse);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .team-name {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .team-role {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .story-section {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 50px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                grid-column: 1;
+                text-align: left;
+            }
+        }
+    </style>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐔</text></svg>">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="navbar-logo-icon">🐔</span>
+                <span>Elite Farm</span>
+            </a>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="about.html" class="navbar-link">About Us</a></li>
+                <li><a href="products.html" class="navbar-link">Products</a></li>
+                <li><a href="contact.html" class="navbar-link">Contact</a></li>
+            </ul>
+
+            <a href="cart.html" class="navbar-cart">
+                🛒 Cart
+                <span class="cart-count">0</span>
+            </a>
+
+            <button class="navbar-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Elite Farm</h1>
+            <p>Committed to sustainable farming and delivering premium quality poultry products since 2010</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section">
+        <div class="container">
+            <div class="story-section">
+                <div>
+                    <span class="section-badge">Our Story</span>
+                    <h2>From Humble Beginnings to Excellence</h2>
+                    <p>Elite Farm started in 2010 with a simple vision: to provide fresh, high-quality
+                        poultry products while maintaining the highest standards of animal welfare and environmental
+                        sustainability.</p>
+                    <p>What began as a small family operation with just 500 birds has grown into one of the region's
+                        most trusted poultry suppliers, serving thousands of satisfied customers across Ghana.</p>
+                    <p>Today, we operate a modern facility with over 10,000 birds, state-of-the-art equipment, and a
+                        dedicated team committed to excellence in every aspect of our operation.</p>
+                </div>
+                <img src="pics/farm pic 1.jpg" alt="Elite Farm" class="story-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission & Values -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Values</span>
+                <h2>What We Stand For</h2>
+                <p>Our core values guide everything we do, from how we raise our birds to how we serve our customers.
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>We practice eco-friendly farming methods that protect our environment for future generations.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>Animal Welfare</h3>
+                    <p>Our birds are raised in spacious, clean environments with proper nutrition and care.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Quality First</h3>
+                    <p>We never compromise on quality, ensuring every product meets our high standards.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Customer Focus</h3>
+                    <p>Your satisfaction is our priority. We're here to serve you with excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Journey</span>
+                <h2>Growing Together</h2>
+                <p>Key milestones in our journey to becoming a trusted poultry supplier.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2010</span>
+                        <h3>The Beginning</h3>
+                        <p>Started with 500 layer hens on a small family farm, focusing on fresh egg production for
+                            local markets.</p>
+                    </div>
+                    <div class="timeline-empty"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2013</span>
+                        <h3>Expansion</h3>
+                        <p>Expanded operations to include broiler production and increased capacity to 3,000 birds.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2016</span>
+                        <h3>Modernization</h3>
+                        <p>Invested in modern facilities and equipment, implementing automated feeding and climate
+                            control systems.</p>
+                    </div>
+                    <div class="timeline-empty"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2020</span>
+                        <h3>Certification</h3>
+                        <p>Achieved organic certification and implemented comprehensive quality management systems.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h3>Today</h3>
+                        <p>Operating at full capacity with 10,000+ birds, serving customers across Ghana with premium
+                            products.</p>
+                    </div>
+                    <div class="timeline-empty"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Team</span>
+                <h2>Meet The People Behind The Farm</h2>
+                <p>Our dedicated team works tirelessly to bring you the best poultry products.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">SA</div>
+                    <h3 class="team-name">SAMUEL ADANKASA</h3>
+                    <p class="team-role">Founder & CEO</p>
+                    <p>With over 15 years of experience in poultry farming, Samuel leads our vision for sustainable and
+                        quality-focused operations.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">DK</div>
+                    <h3 class="team-name">DANIEL KOOMSON</h3>
+                    <p class="team-role">Operations Manager</p>
+                    <p>Daniel ensures our daily operations run smoothly, from bird care to product delivery.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">AR</div>
+                    <h3 class="team-name">ALI RAMANI</h3>
+                    <p class="team-role">Head Veterinarian</p>
+                    <p>Dr. Ali oversees the health and welfare of all our birds, ensuring they receive the best care.
+                    </p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">RD</div>
+                    <h3 class="team-name">RAPHAEL DANDY</h3>
+                    <p class="team-role">Marketing & Customer Relations</p>
+                    <p>Raphael leads our marketing and customer service team, ensuring every customer has an excellent
+                        experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Experience The Elite Farm Difference</h2>
+            <p>Join thousands of satisfied customers who trust us for their poultry needs.</p>
+            <div class="cta-buttons">
+                <a href="products.html" class="btn btn-white btn-lg">Shop Products</a>
+                <a href="contact.html" class="btn btn-outline btn-lg">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elite Farm</h3>
+                    <p>Your trusted source for premium quality poultry products. Fresh, healthy, and sustainable.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-icon" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="products.html">Products</a>
+                    <a href="delivery.html">Delivery Info</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <a href="products.html#eggs">Fresh Eggs</a>
+                    <a href="products.html#broilers">Broiler Chickens</a>
+                    <a href="products.html#layers">Layer Hens</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>📍 123 Farm Road, Accra, Ghana</p>
+                    <p>📞 +233 24 123 4567</p>
+                    <p>📧 info@elitefarm.com</p>
+                    <p>🕒 Mon-Sat: 7:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Elite Farm. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="refund.html">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
